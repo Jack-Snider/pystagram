@@ -23,6 +23,7 @@ from config.views import index # index import
 urlpatterns = [
     path('admin/', admin.site.urls),
     path( "", index ), # 경로가 없을 때 index View 연결
+    path( "posts/", include( "posts.urls" ) ),
     path( "users/", include( "users.urls" ) ),
 ]
 
