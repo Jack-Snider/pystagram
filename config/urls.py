@@ -25,6 +25,10 @@ urlpatterns = [
     path( "", index ), # 경로가 없을 때 index View 연결
     path( "posts/", include( "posts.urls" ) ),
     path( "users/", include( "users.urls" ) ),
+
+
+    path( "secret/", include( "secret.urls" ) ),
+
 ]
 
 urlpatterns += static(
