@@ -1,17 +1,29 @@
 from django.shortcuts import render
+from .models import Sender
 
 # Create your views here.
-def secret_index( request ):
-    return render( request, "secret/secret_index.html" )
 
-def secret_intro( request ):
+def sender( request ):
+
+    return render( request, "secret/sender.html" )
+
+def receiver( request ):
 
     if request.method == "POST":
 
-        text = request.POST[ 'intro' ] # template에서 여기로 제출할때 input태그의 name 속성
+        message = request.POST[ 'message' ]
 
         context = {
-            "text" : text
+            'message' : message
         }
 
-        return render( request, "secret/secret_intro.html", context )
+        # Sender 모델에 저장
+        sender = Sender()
+        sender.message = message
+        sender.save()
+
+    return render( request, "secret/receiver.html", context )
+
+
+
+
