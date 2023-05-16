@@ -6,13 +6,8 @@
     <body>
         <h1>Feeds</h1>
 
-        <button id = "btn">JACK</button>
-
-        <script>
-            document.getElementById( "btn" ).onclick = function(){
-                alert( "You clicked the button!" );
-            };
-        </script>
+        <div>{{ user.username }}( ID : {{ user.id }} )</div>
+        <a href = "/users/logout/">로그아웃</a>
 
     </body>
 </html>

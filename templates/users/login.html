@@ -1,15 +1,17 @@
 <!doctype html>
-<html>
+{% load static %}
+<html lang="en">
     <head>
-        <title>Login View</title>
+        <link rel = "stylesheet" href = "{% static 'css/style.css' %}">
     </head>
     <body>
-        <h1>Login</h1>
-        <form method = "POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type = "submit">Log in</button>
-        </form>
-
+        <div id = "login">
+            <form method = "POST">
+                <h1>JackStagram</h1>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type = "submit" class = "btn btn-login">Login</button>
+            </form>
+        </div>
     </body>
 </html>
