@@ -1,11 +1,13 @@
-<!doctype>
-<html lang="en">
-    <body>
-        <h1>Sign up</h1>
-        <form method = "POST" enctype = "multipart/form-data">
+{% extends 'base.html' %}
+
+{% block content %}
+<div id = "signup">
+    <form method = "POST" enctype = "multipart/form-data">
+        <h1>Jack Snider</h1>
             {% csrf_token %}
             {{ form.as_p }}
-            <button type = "submit">Sign up</button>
-        </form>
-    </body>
-</html>
+            <button type = "submit" class = "btn btn-signup">Sign up</button>
+            <a href = "/users/login/">Log in</a>
+    </form>
+</div>
+{% endblock %}
