@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from posts.models import Post
 
 # Create your views here.
 def feeds( request ):
@@ -8,4 +9,9 @@ def feeds( request ):
         # /users/login/ URL로 이동시킴
         return redirect( "/users/login" )
 
-    return render( request, "posts/feeds.html" )
+    posts = Post.objects.all()
+    context = { "posts" : posts }
+
+    return render( request, "posts/feeds.html", context )
+
+
